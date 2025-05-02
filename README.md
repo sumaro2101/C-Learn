@@ -72,3 +72,22 @@ int[] array = new int[10];
 - В ``[]`` указывается длина массива.
 
 ## Методы
+
+- Мы можем возвращать несколько значение из метода с помощью ``out``:
+
+```C#
+static int GetMin(int[] nums, out int index) {
+    index = 0;
+    for (int k = 1; k < nums.Length; k++) {
+        if (nums[k] < nums[index]) {
+            index = k;
+        }
+    }
+    return nums[index];
+}
+int[] nums = {1, 3, 4, 5};
+int index;
+int min = GetMin(nums, out index);
+```
+
+Таким образом мы обрабатываем внешнюю переменную которую мы за ранее объявили и метод обработает ее и изменит значениие.
